@@ -15,4 +15,5 @@ def encode(firstString,offset,secondString):
 def decode():
     print('do that')
 
+
 encode('abcde',5,'jjh')
