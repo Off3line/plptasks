@@ -1,18 +1,23 @@
-def encode(firstString,offset,secondString):
+import random
+
+def encode(firstString,offset):
 
     ## convert strings into list containing the ascii numbers
     convertedList = stringToNumberConv(firstString)
-    convertedListTwo = stringToNumberConv(secondString)
+    randomList = []
     
-    ## merge the list by adding the second list to every other index into the first list
-    index = 0
-    for i in range(1,(len(convertedList)*2-1),2):
-        if(index >= len(convertedListTwo)):
-            index = 0
-            convertedList.insert(i,convertedListTwo[index])
-        else:
-            convertedList.insert(i,convertedListTwo[index])
-            index +=1
+    index = 1
+    for x in range(len(convertedList)-1):
+        randomNr = random.randint(97,122)
+        convertedList.insert(index,randomNr)
+        index += 2
+        
+    print('encoded , random List',convertedList)
+
+
+
+
+     
     
     ## execute the inserted rotation by the offset
     convertedList = rotOperation(offset,convertedList)

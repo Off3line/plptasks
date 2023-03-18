@@ -1,5 +1,5 @@
 
-## 2.Task:
+## 3.Task:
 from encoder import *
 from decoder import *
 
@@ -7,7 +7,7 @@ from decoder import *
 
 
 offset = -5
-encodedMessage = encode('abcde',offset,'jjh')
+encodedMessage = encode('abcde',offset)
 
 offset = changeOffset(offset)
 ##there is a bug when you put in phisi for example
