@@ -4,8 +4,6 @@ def stringToNumberConv(convertedList):
     toasciiList = []
     for x in convertedList: 
         toasciiList.append(ord(x))
-
-    print(toasciiList)
     return toasciiList
 
 
@@ -35,6 +33,12 @@ def rotOperation(offset, rotateString):
 
     return rotatedList
 
+def changeOffset(offset):
+
+    if offset >= 1:
+        return -abs(offset)
+    else:
+        return abs(offset)
 
 
 def encode(firstString,offset,secondString):
@@ -55,18 +59,33 @@ def encode(firstString,offset,secondString):
     
     ## execute the inserted rotation by the offset
     convertedList = rotOperation(offset,convertedList)
-    print(' encoded list: ', convertedList)
+    print('encoded list: ', convertedList)
 
     #revert back to alphanumeric numbers
-    finalList = numberToStringConv(convertedList)
-    print('final list: ' , finalList)
+    finalString = numberToStringConv(convertedList)
+    print('final list: ' , finalString)
+
+    return finalString
 
 
+def decode(decodedString,decodedOffset):
+    decodedAsciiList = stringToNumberConv(decodedString)
+    print('decodedList', decodedAsciiList)
+    originalList =  []
+
+    for x in decodedAsciiList[1::2]:
+        decodedAsciiList.remove(x)
+
+    print(decodedAsciiList)
+
+    originalList = rotOperation(decodedOffset,decodedAsciiList)
+
+    print(originalList)
 
 
+offset = -5
+encodedMessage = encode('abcde',offset,'jjh')
 
-def decode():
-    print('do that')
+offset = changeOffset(offset)
 
-
-encode('abcde',-5,'jjh')
+decodedMessage = decode(encodedMessage,offset)
