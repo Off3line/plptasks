@@ -12,3 +12,10 @@ def decode(decodedString,decodedOffset):
     originalString = rotOperation(decodedOffset,decodedAsciiList)
     originalString = numberToStringConv(originalString)
     print('final String', originalString)
+
+def changeOffset(offset):
+
+    if offset >= 1:
+        return -abs(offset)
+    else:
+        return abs(offset)

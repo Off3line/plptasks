@@ -12,3 +12,11 @@ def decode(decodedString,decodedOffset):
     originalString = numberToStringConv(originalString)
     
     return print ('decoded to: ', originalString)
+
+
+def changeOffset(offset):
+
+    if offset >= 1:
+        return -abs(offset)
+    else:
+        return abs(offset)

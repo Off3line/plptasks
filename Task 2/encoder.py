@@ -24,14 +24,14 @@ def encode(firstString,offset,secondString):
 
     return finalString
 
-
+## Function to compile the chars into ascii numbers
 def stringToNumberConv(convertedList):
     toasciiList = []
     for x in convertedList: 
         toasciiList.append(ord(x))
     return toasciiList
 
-
+## Function to compile the ascii numbers into chars
 def numberToStringConv(selectedList):
     toAlphabeticList = ''
     for x in selectedList:
@@ -39,6 +39,8 @@ def numberToStringConv(selectedList):
 
     return toAlphabeticList
 
+
+## Function which rotates the chars x-times based on the input offset. Range is given by ascii lower character letters 97-122
 def rotOperation(offset, rotateString):
     rotatedList = []
     
@@ -57,10 +59,4 @@ def rotOperation(offset, rotateString):
    
 
     return rotatedList
-
-def changeOffset(offset):
-
-    if offset >= 1:
-        return -abs(offset)
-    else:
-        return abs(offset)
+   

@@ -1,7 +1,7 @@
 import random
 import string
 
-
+## encode function which uses random values in case secondString has not been used
 def encode(firstString,offset,secondString = None):
 
     ## convert strings into list containing the ascii numbers
@@ -9,7 +9,7 @@ def encode(firstString,offset,secondString = None):
     convertedListTwo = []
     if secondString is None:
         secondString = []
-        
+        ## generate x amount of chars needed to fill between the firString by: len() -1
         for x in range((len(convertedList)-1)):
             secondString.append(random.choice(string.ascii_lowercase))
         convertedListTwo = stringToNumberConv(secondString)
@@ -17,6 +17,7 @@ def encode(firstString,offset,secondString = None):
     else:
         convertedListTwo = stringToNumberConv(secondString)
     
+    ## If the second string is given by the argument and also too small, the index will reset to fill the first string
     index = 0
     for i in range(1,(len(convertedList)*2-1),2):
         if(index >= len(convertedListTwo)):
@@ -51,6 +52,7 @@ def numberToStringConv(selectedList):
 
     return toAlphabeticList
 
+## Function which rotates the chars x-times based on the input offset. Range is given by ascii lower character letters 97-122
 def rotOperation(offset, rotateString):
     rotatedList = []
     
@@ -70,9 +72,3 @@ def rotOperation(offset, rotateString):
 
     return rotatedList
 
-def changeOffset(offset):
-
-    if offset >= 1:
-        return -abs(offset)
-    else:
-        return abs(offset)
